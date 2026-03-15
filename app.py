@@ -231,7 +231,7 @@ energy       = st.sidebar.number_input("⚡ Energy (kWh)", 100.0, 10000.0, 1000.
 renewable    = st.sidebar.slider("☀️ Renewable Energy %", 0, 100, 20)
 downtime     = st.sidebar.number_input("🔧 Machine Downtime (hrs)", 0.0, 24.0, 5.0, 0.5)
 efficiency   = st.sidebar.number_input("📊 Efficiency Index", 50.0, 100.0, 75.0, 1.0)
-energy_cost  = st.sidebar.number_input("💰 Energy Cost (₹/kWh)", 5.0, 15.0, 8.0, 0.5)
+energy_cost  = st.sidebar.number_input("💰 Energy Cost (Rs /kWh)", 5.0, 15.0, 8.0, 0.5)
 
 st.sidebar.markdown("---")
 predict_btn = st.sidebar.button("🚀 Predict & Analyze", use_container_width=True)
@@ -294,13 +294,13 @@ if predict_btn:
     with k3:
         st.markdown(f"""<div class='metric-card'>
             <div class='metric-icon'>💰</div>
-            <div class='metric-value'>₹{money_saved/1000:.0f}K</div>
+            <div class='metric-value'>Rs {money_saved/1000:.0f}K</div>
             <div class='metric-label'>Monthly Savings</div>
             <div class='metric-change'>Potential Benefit</div></div>""", unsafe_allow_html=True)
     with k4:
         st.markdown(f"""<div class='metric-card'>
             <div class='metric-icon'>🌱</div>
-            <div class='metric-value'>₹{credit_val/1000:.0f}K</div>
+            <div class='metric-value'>Rs {credit_val/1000:.0f}K</div>
             <div class='metric-label'>Carbon Credits</div>
             <div class='metric-change'>{saved:.1f} Tons Saved</div></div>""", unsafe_allow_html=True)
 
@@ -404,12 +404,12 @@ if predict_btn:
                       f"Efficiency at {efficiency}% is below optimal. Implement IoT-based predictive maintenance to reach 85% → 15% energy reduction.", "HIGH"))
     if downtime > 4:
         recs.append(("🔧 Reduce Machine Downtime",
-                      f"Downtime of {downtime}hrs/day is high. Optimize schedules to <2hrs → Save ₹{downtime*500*30:,.0f}/month.", "MEDIUM"))
+                      f"Downtime of {downtime}hrs/day is high. Optimize schedules to <2hrs → Save Rs {downtime*500*30:,.0f}/month.", "MEDIUM"))
     if energy > 2000:
         recs.append(("💡 Energy Peak Shifting",
                       "Shift heavy operations to off-peak hours (10PM–6AM). Electricity costs drop 20-30% during off-peak periods.", "MEDIUM"))
     recs.append(("🌱 Carbon Credit Market",
-                  f"Register on BEE/UNFCCC carbon market. Earn ₹{credit_val:,.0f}/month by reducing {saved:.1f} tons CO₂.", "OPPORTUNITY"))
+                  f"Register on BEE/UNFCCC carbon market. Earn Rs {credit_val:,.0f}/month by reducing {saved:.1f} tons CO₂.", "OPPORTUNITY"))
     recs.append(("📡 IoT Real-Time Monitoring",
                   "Install smart meters & IoT sensors for granular energy monitoring → Identify waste patterns in real-time.", "LOW"))
 
@@ -433,12 +433,12 @@ if predict_btn:
     with cc2:
         st.markdown(f"""<div class='credit-card'>
             <div class='credit-icon'>💰</div>
-            <div class='credit-value'>₹{credit_val:,.0f}</div>
+            <div class='credit-value'>Rs {credit_val:,.0f}</div>
             <div class='credit-label'>CARBON CREDIT VALUE</div></div>""", unsafe_allow_html=True)
     with cc3:
         st.markdown(f"""<div class='credit-card'>
             <div class='credit-icon'>📈</div>
-            <div class='credit-value'>₹{annual/100000:.1f}L</div>
+            <div class='credit-value'>Rs {annual/100000:.1f}L</div>
             <div class='credit-label'>ANNUAL TOTAL BENEFIT</div></div>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -454,4 +454,4 @@ if predict_btn:
     values = [money_saved * 12, credit_val * 12, annual]
     bar_c = ['#00E87A', '#7C3AED', '#FFD93D']
 
-    bars2 = ax5.barh(categories, values, color=bar_c, height=0.4, edgecolor='#0a0015', linewid
+    bars2 = ax5.barh(categories, values, color=bar_c, height=0.4, edgecolor='bla
